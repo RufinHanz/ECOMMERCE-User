@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { firestore } from '../database/firebase';
-import './Pages.css'
+import { ShoppingCart } from 'phosphor-react';
+import './pagescss/Shop.css';
 
-const Shop = () => {
+const Shop = ({ setCart }) => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        // Function to fetch products from Firestore
         const fetchProducts = async () => {
             try {
                 const productsCollection = await firestore.collection('products').get();
@@ -17,13 +17,14 @@ const Shop = () => {
             }
         };
 
-        // Call fetchProducts function
         fetchProducts();
     }, []);
 
     const addToCart = (productId) => {
-        // Implement your add to cart logic here
-        console.log(`Product added to cart: ${productId}`);
+        const productToAdd = products.find(product => product.id === productId);
+        if (productToAdd) {
+            setCart(prevCart => [...prevCart, productToAdd]);
+        }
     };
 
     return (
@@ -34,8 +35,10 @@ const Shop = () => {
                     <div key={product.id} className="product-container">
                         <img src={product.imageUrl} alt={product.name} />
                         <h3>{product.name}</h3>
-                        <p>${product.price}</p>
-                        <button onClick={() => addToCart(product.id)}>Add to Cart</button>
+                        <p>PHP{product.price}</p>
+                        <button onClick={() => addToCart(product.id)}>
+                            <ShoppingCart /> Add to Cart
+                        </button>
                     </div>
                 ))}
             </div>
