@@ -6,12 +6,13 @@ import './Navbar.css';
 const Navbar = () => {
     return (
         <div className="Navbar">
-            <div className="links">
-                <Link to="/shop"><Storefront size={24} /> Shop</Link>
-                <Link to="/cart"><ShoppingCart size={24} /> Cart</Link>
+            <div className="WebName">
+                QuickMart
             </div>
-            <div className="logout">
-                <Link to="/logout"><SignOut size={24} /> Logout</Link>
+            <div className="logout-login">
+                <Link to="/shop"><Storefront size={24} /> Shop </Link>
+                <Link to="/cart"><ShoppingCart size={24} /> Cart </Link>
+                 <Link to="/login"><SignOut size={24} /> Log Out </Link>
             </div>
         </div>
     );

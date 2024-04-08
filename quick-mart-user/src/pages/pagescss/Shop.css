@@ -4,6 +4,26 @@
     padding: 20px;
 }
 
+.shop-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    padding: 10px; /* Increase padding to make it bigger */
+    border-radius: 20px; /* Add round edges */
+    border: none; /* Remove default border */
+    font-size: 20px; /* Adjust font size */
+    width: 300px; /* Set a fixed width */
+    display: block; /* Ensure it's displayed as a block element */
+}
+
+/* If the search bar component has specific class names or IDs, use them in your CSS selector to target it */
+
+
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

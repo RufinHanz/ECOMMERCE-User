@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
-import Logout from './pages/Logout';
+import Login from './login/Login'
+import Register from './login/Register';
 
 const App = () => {
     const [cart, setCart] = useState([]);
@@ -16,11 +16,11 @@ const App = () => {
 
     return (
         <Router>
-            <Navbar />
             <Routes>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
                 <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />}/>
-                <Route path="/logout" element={<Logout />} />
             </Routes>
         </Router>
     );

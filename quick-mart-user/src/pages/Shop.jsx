@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { firestore } from '../database/firebase';
 import { ShoppingCart } from 'phosphor-react';
 import './pagescss/Shop.css';
+import Navbar from '../components/Navbar';
 
 const Shop = ({ setCart }) => {
     const [products, setProducts] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -27,11 +29,31 @@ const Shop = ({ setCart }) => {
         }
     };
 
+    const handleSearch = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     return (
+        <div className="nav">
+        <Navbar />
         <div className="shop-container">
-            <h1>Shop</h1>
+            <div className="shop-header">
+                <h3>Shopping Zone</h3>
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={searchTerm}
+                        onChange={handleSearch}
+                    />
+                </div>
+            </div>
             <div className="products-grid">
-                {products.map(product => (
+                {filteredProducts.map(product => (
                     <div key={product.id} className="product-container">
                         <img src={product.imageUrl} alt={product.name} />
                         <h3>{product.name}</h3>
@@ -42,6 +64,7 @@ const Shop = ({ setCart }) => {
                     </div>
                 ))}
             </div>
+        </div>
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
-import './pagescss/Cart.css'
+import './pagescss/Cart.css';
+import Navbar from '../components/Navbar';
 
 const Cart = ({ cart, removeFromCart }) => {
     // Calculate the total price of all products in the cart
@@ -8,11 +9,13 @@ const Cart = ({ cart, removeFromCart }) => {
     }, 0);
 
     return (
+        <div className="nav">
+        <Navbar />
         <div className="cart-container">
             <h1>Cart</h1>
             <div className="cart-items">
                 {cart.length === 0 ? (
-                    <p>Your cart is empty</p>
+                    <div>Your cart is empty</div>
                 ) : (
                     cart.map(product => (
                         <div key={product.id} className="cart-item">
@@ -25,6 +28,7 @@ const Cart = ({ cart, removeFromCart }) => {
                         </div>
                     ))
                 )}
+            </div>
             </div>
             {cart.length > 0 && (
                 <div className="cart-summary">

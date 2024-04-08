@@ -7,24 +7,17 @@
     align-items: center;
 }
 
-.links {
-    display: flex;
-    align-items: center;
+.WebName {
+    font-size: 30px; /* or any size you prefer */
+    color: orange;
+    font-weight: bold;
 }
 
-    .links a,
-    .logout a {
+
+    .WebName a,
+    .logout-login a {
         text-decoration: none;
         color: orange;
-        font-size: 25px;
+        font-size: 20px;
         margin-right: 20px;
-    }
-
-.logout a {
-    display: flex;
-    align-items: center;
-}
-
-    .logout a svg {
-        margin-right: 5px
     }
