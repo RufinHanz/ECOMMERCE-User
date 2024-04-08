@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../database/firebase';
+import './logincss/Login.css';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -18,13 +19,15 @@ const LoginPage = () => {
             // Redirect to Shop page upon successful login
             navigate('/shop');
         } catch (error) {
-            setError(error.message);
+            setError('Invalid Username or Password, Please Try Again.');
         }
     };
 
     return (
-        <div>
-            <h1>Login</h1>
+        <div className="login-container"> {/* Apply the className here */}
+            <div className="login-header"> {/* Container for the Log In header */}
+                <h1>Welcome Back!</h1>
+            </div>
             {error && <p className="error-message">{error}</p>}
             <form onSubmit={handleLogin}>
                 <input
@@ -39,7 +42,7 @@ const LoginPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button type="submit">Login</button>
+                <button type="submit">Log In</button>
             </form>
             <p>
                 Don't have an account? <Link to="/register">Register here</Link>
@@ -47,5 +50,6 @@ const LoginPage = () => {
         </div>
     );
 };
+
 
 export default LoginPage;

@@ -1,8 +1,7 @@
-// RegisterPage.js
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, firestore } from '../database/firebase';
+import './logincss/Register.css'; // Import the CSS file
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
@@ -32,8 +31,10 @@ const RegisterPage = () => {
     };
 
     return (
-        <div>
-            <h1>Register</h1>
+        <div className="register-container"> {/* Apply the className here */}
+            <div className="register-header"> {/* Container for the Log In header */}
+                <h1>Register Account</h1>
+            </div>
             {error && <p className="error-message">{error}</p>}
             {success && <p className="success-message">Registration successful. Redirecting to login page...</p>}
             <form onSubmit={handleRegister}>

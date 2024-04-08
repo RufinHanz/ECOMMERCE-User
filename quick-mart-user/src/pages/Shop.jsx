@@ -41,9 +41,7 @@ const Shop = ({ setCart }) => {
         <div className="nav">
         <Navbar />
         <div className="shop-container">
-            <div className="shop-header">
-                <h3>Shopping Zone</h3>
-                <div className="search-bar">
+                <div className="search">
                     <input
                         type="text"
                         placeholder="Search products..."
@@ -64,7 +62,6 @@ const Shop = ({ setCart }) => {
                     </div>
                 ))}
             </div>
-        </div>
         </div>
     );
 };

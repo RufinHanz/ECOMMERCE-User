@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Login from './login/Login'
 import Register from './login/Register';
+import Checkout from './pages/Checkout';
 
 const App = () => {
     const [cart, setCart] = useState([]);
@@ -19,6 +21,7 @@ const App = () => {
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/checkout" element={<Checkout />} />
                 <Route path="/shop" element={<Shop cart={cart} setCart={setCart} />} />
                 <Route path="/cart" element={<Cart cart={cart} removeFromCart={removeFromCart} />}/>
             </Routes>

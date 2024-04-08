@@ -1,3 +1,8 @@
+.cart-empty {
+    font-size: 20px;
+    justify-items: center;
+}
+
 .cart-container {
     position: relative;
     max-width: 800px;
@@ -41,8 +46,8 @@
 
     .cart-item button {
         position: absolute;
-        bottom: 10px; /* Adjust as needed */
-        right: 10px; /* Adjust as needed */
+        bottom: 10px;
+        right: 10px;
         background-color: #333333;
         color: orange;
         border: none;
@@ -57,32 +62,24 @@
             color: #333333;
         }
 
+/* Cart.css */
+
 .cart-summary {
     margin-top: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
-    .cart-summary h2 {
-        font-size: 20px;
-        margin: 0;
-    }
+.checkout-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333333;
+    color: orange;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-    .cart-summary a {
-        text-decoration: none;
+    .checkout-button:hover {
+        background-color: orange;
         color: #333333;
-        padding: 5px 10px;
-        border: 1px solid #333333;
-        border-radius: 3px;
-        transition: background-color 0.3s, color 0.3s;
     }
-
-        .cart-summary a:hover {
-            background-color: #333333;
-            color: #f9f9f9;
-        }

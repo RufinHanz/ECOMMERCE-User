@@ -8,9 +8,10 @@
 }
 
 .WebName {
-    font-size: 30px; /* or any size you prefer */
+    font-size: 35px; /* or any size you prefer */
     color: orange;
     font-weight: bold;
+    padding-left: 10px;
 }
 
 

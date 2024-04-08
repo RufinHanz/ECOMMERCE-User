@@ -1,4 +1,6 @@
+// Cart.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './pagescss/Cart.css';
 import Navbar from '../components/Navbar';
 
@@ -10,31 +12,33 @@ const Cart = ({ cart, removeFromCart }) => {
 
     return (
         <div className="nav">
-        <Navbar />
-        <div className="cart-container">
-            <h1>Cart</h1>
-            <div className="cart-items">
-                {cart.length === 0 ? (
-                    <div>Your cart is empty</div>
-                ) : (
-                    cart.map(product => (
-                        <div key={product.id} className="cart-item">
-                            <img src={product.imageUrl} alt={product.name} />
-                            <div>
-                                <h3>{product.name}</h3>
-                                <p>PHP {product.price}</p>
-                                <button onClick={() => removeFromCart(product.id)}>Delete</button>
+            <Navbar />
+            <div className="cart-container">
+                <div className="cart-items">
+                    {cart.length === 0 ? (
+                        <div className="cart-empty">Your cart is empty!</div>
+                    ) : (
+                        cart.map(product => (
+                            <div key={product.id} className="cart-item">
+                                <img src={product.imageUrl} alt={product.name} />
+                                <div>
+                                    <h3>{product.name}</h3>
+                                    <p>PHP {product.price}</p>
+                                    <button onClick={() => removeFromCart(product.id)}>Delete</button>
+                                </div>
                             </div>
-                        </div>
-                    ))
+                        ))
+                    )}
+                </div>
+                {cart.length > 0 && (
+                    <div className="cart-summary">
+                        <h2>Total Price: PHP {totalPrice.toFixed(2)}</h2>
+                        <Link to="/checkout">
+                            <button className="checkout-button">Check Out</button>
+                        </Link>
+                    </div>
                 )}
             </div>
-            </div>
-            {cart.length > 0 && (
-                <div className="cart-summary">
-                    <h2>Total Price: PHP {totalPrice.toFixed(2)}</h2>
-                </div>
-            )}
         </div>
     );
 };
